@@ -8,13 +8,11 @@ from datetime import datetime, timedelta
 class WeatherProvider(MessageProvider):
     __yandex_api = 'https://yandex.ru/pogoda/front/maps/balloon?' \
                    'lat={}&lon={}&ts={}'
-    __gismeteo_api = ''
 
-    def __init__(self, lat, lon, gis_token=None):
+    def __init__(self, lat, lon):
         super().__init__()
         self.lat = lat
         self.lon = lon
-        self.gis_token = gis_token
 
     def get_yandex_weather(self):
         dt = datetime.fromtimestamp(time())

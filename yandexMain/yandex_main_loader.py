@@ -11,10 +11,10 @@ from bs4 import BeautifulSoup
 from hakaton import MessageProvider
 
 class YandexMainMessageProvider(MessageProvider):
-	BASE_URL = "https://yandex.ru/"
+    __yandex_base_url = "https://yandex.ru/"
 
     def __init__(self):
         super(YandexMainMessageProvider, self).__init__()
 
     def get_soup(self):
-        return BeautifulSoup(urlopen(BASE_URL).read(), 'html.parser')
+        return BeautifulSoup(urlopen(self.__yandex_base_url).read(), 'html.parser')
