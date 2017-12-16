@@ -1,19 +1,19 @@
 from unittest import TestCase, main
 
-from quotes import QuotesProvider
+from quotation import QuotationProvider
 
 
-class NameDayTest(TestCase):
+class QuotationProviderTest(TestCase):
     def test_get_valute(self):
-        app = QuotesProvider(['EUR'])
+        app = QuotationProvider(['EUR'])
         valute = app.get_valute()
         self.assertEqual(len(valute), 1)
 
     def test_get_message(self):
-        app = QuotesProvider()
+        app = QuotationProvider()
         self.assertRegex(
             app.get_message(),
-            'Курсы валют: USD – \d\d.\d{4}, EUR – \d\d.\d{4}'
+            'Курсы валют: Доллар США – \d\d.\d{4}, Евро – \d\d.\d{4}'
         )
 
 

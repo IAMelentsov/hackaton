@@ -5,7 +5,7 @@ import ssl
 from hakaton import MessageProvider
 
 
-class QuotesProvider(MessageProvider):
+class QuotationProvider(MessageProvider):
     def __init__(self, valutes=('USD', 'EUR')):
         super(MessageProvider, self).__init__()
         self._valutes = valutes
@@ -21,7 +21,7 @@ class QuotesProvider(MessageProvider):
 
     def get_valute(self):
         valute = json.loads(self._request())['Valute']
-        return [(name, valute[name]['Value']) for name in self._valutes]
+        return [(valute[name]['Name'], valute[name]['Value']) for name in self._valutes]
 
     def get_message(self):
         return 'Курсы валют: %s' % ', '.join(
