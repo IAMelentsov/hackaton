@@ -13,4 +13,3 @@ class MessageProvider(object):
 
 	def get_message(self):
 		pass
-		
