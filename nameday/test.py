@@ -1,11 +1,11 @@
 from unittest import TestCase, main
 
-from name_day import NameDay
+from nameday import NamedayProvider
 
 
 class NameDayTest(TestCase):
     def test_get_message(self):
-        app = NameDay()
+        app = NamedayProvider()
         self.assertRegex(
             app.get_message(),
             'Сегодня именины празднуют .*?'

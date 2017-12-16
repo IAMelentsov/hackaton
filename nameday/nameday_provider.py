@@ -5,10 +5,13 @@ from re import findall, search, sub
 from hakaton import MessageProvider
 
 
-class NameDay(MessageProvider):
-    def __init__(self):
+class NamedayProvider(MessageProvider):
+    _url = 'http://www.calend.ru/names/%d-%d/'
+
+    def __init__(self, day=datetime.now().day, month=datetime.now().month):
         super(MessageProvider, self).__init__()
-        self._url = 'http://www.calend.ru/names/%d-%d/'
+        self._day = day
+        self._month = month
 
     @staticmethod
     def _request(url):
@@ -27,12 +30,10 @@ class NameDay(MessageProvider):
         )
 
     def get_message(self):
-        now = datetime.now()
-
         return "Сегодня именины празднуют %s" % ', '.join(
             self._parse(
                 self._request(
-                    self._url % (now.month, now.day)
+                    self._url % (self._month, self._day)
                 )
             )
         )
