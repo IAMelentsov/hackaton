@@ -21,10 +21,10 @@ class NamedayProvider(MessageProvider):
 
     def get_names(self):
         return findall(
-            '<ahref="/names/0/0/\d+/">(.*?)</a>',
+            '<aclass="\w+"href="/names/0/0/\d+/">(.*?)</a>',
             search(
-                '<li><strong>Именины</strong>(.*?)</li>',
-                sub('[\s\t]', '', self._request(self._url % (self._month, self._day)))
+                '<divclass="holidayweek">(.*?)</div><divclass="mm2">',
+                sub('[\s\t\n\r]', '', self._request(self._url % (self._month, self._day)))
             ).group(1)
         )
 

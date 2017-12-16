@@ -3,20 +3,20 @@ from unittest import TestCase, main
 from nameday import NamedayProvider
 
 
-class NameDayTest(TestCase):
+class NamedayProviderTest(TestCase):
     def setUp(self):
         self.app = NamedayProvider(16, 12)
 
     def test_get_names(self):
         self.assertEqual(
             self.app.get_names(),
-            ['Андрей', 'Гавриил', 'Георгий', 'Иван', 'Николай', 'Федор', 'Ефрем']
+            ['Андрей', 'Гавриил', 'Георгий', 'Ефрем', 'Иван', 'Николай', 'Федор']
         )
 
     def test_get_message(self):
         self.assertRegex(
             self.app.get_message(),
-            'Сегодня именины празднуют Андрей, Гавриил, Георгий, Иван, Николай, Федор, Ефрем'
+            'Сегодня именины празднуют Андрей, Гавриил, Георгий, Ефрем, Иван, Николай, Федор'
         )
 
 
