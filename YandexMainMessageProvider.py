@@ -10,8 +10,10 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from hakaton import MessageProvider
 
+
+BASE_URL = "https://yandex.ru/"
+
 class YandexMainMessageProvider(MessageProvider):
-	BASE_URL = "https://yandex.ru/"
 
     def __init__(self):
         super(YandexMainMessageProvider, self).__init__()
