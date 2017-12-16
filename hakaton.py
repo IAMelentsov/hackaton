@@ -6,12 +6,11 @@ Created on 2017-12-16 15:26
 @author: i.melentsov
 '''
 
-class Message_provider(object):
+class MessageProvider(object):
 	"""docstring for Message_provider"""
-	def __init__(self, arg):
-		super(Message_provider, self).__init__()
-		self.arg = arg
+	def __init__(self, *args, **kwargs):
+		super(MessageProvider, self).__init__()
 
-	def get_message():
+	def get_message(self):
 		pass
 		
