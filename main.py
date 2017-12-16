@@ -10,6 +10,10 @@ from weather.wether_provider import WeatherProvider
 from yandex_main.yandex_main_afisha_message_provider import YandexMainAfishaMessageProvider
 from yandex_main.yandex_main_traffic_provider import YandexMainTrafficProvider
 from nameday.nameday_provider import NamedayProvider
+from quotes.quotes_provider import QuotesProvider
+
+def main():
+	pass
 
 if __name__ == '__main__':
 	main()

@@ -1,4 +1,4 @@
-from yandex_main_loader import YandexMainMessageProvider
+from yandex_main import YandexMainMessageProvider
 
 class YandexMainAfishaMessageProvider(YandexMainMessageProvider):
     def __init__(self, *args, **keyArgs):

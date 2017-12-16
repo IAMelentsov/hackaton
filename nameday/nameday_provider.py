@@ -19,21 +19,14 @@ class NamedayProvider(MessageProvider):
 
         return response.read().decode('windows-1251')
 
-    @staticmethod
-    def _parse(html):
+    def get_names(self):
         return findall(
             '<ahref="/names/0/0/\d+/">(.*?)</a>',
             search(
                 '<li><strong>Именины</strong>(.*?)</li>',
-                sub('[\s\t]', '', html)
+                sub('[\s\t]', '', self._request(self._url % (self._month, self._day)))
             ).group(1)
         )
 
     def get_message(self):
-        return "Сегодня именины празднуют %s" % ', '.join(
-            self._parse(
-                self._request(
-                    self._url % (self._month, self._day)
-                )
-            )
-        )
+        return "Сегодня именины празднуют %s" % ', '.join(self.get_names())
