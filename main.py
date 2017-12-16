@@ -1,19 +1,12 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-'''
-Created on 2017-12-16 20:44
-@summary: 
-@author: i.melentsov
-'''
+from weather import WeatherProvider
+from nameday import NamedayProvider
+from quotation import QuotationProvider
+from yandex_main import YandexMainAfishaMessageProvider, YandexMainTrafficProvider
 
-from weather.wether_provider import WeatherProvider
-from yandex_main.yandex_main_afisha_message_provider import YandexMainAfishaMessageProvider
-from yandex_main.yandex_main_traffic_provider import YandexMainTrafficProvider
-from nameday.nameday_provider import NamedayProvider
-from quotes.quotes_provider import QuotesProvider
 
 def main():
-	pass
+    pass
+
 
 if __name__ == '__main__':
-	main()
+    main()

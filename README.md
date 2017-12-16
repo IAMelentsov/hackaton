@@ -1,11 +1,15 @@
 # Hackaton
 
-### Commands
+### Команды
+
+#### Тесты
 
 ```
-# UNIX
-python3 -m unittest */test.py
-
-# Windows
 python -m unittest */test.py
+```
+
+#### Запуск
+
+```
+python main.py
 ```
