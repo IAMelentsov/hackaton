@@ -1,6 +1,8 @@
+from random import randint
 from hakaton import MessageProvider
 import feedparser
-from random import randint
+import requests
+
 
 class YandexNewsProvider(MessageProvider):
     def __init__(self, rubric):
@@ -8,11 +10,11 @@ class YandexNewsProvider(MessageProvider):
         self._url = 'https://news.yandex.ru/' + rubric + '.rss'
 
     def get_message(self):
-        feed = feedparser.parse(self._url)
-        news_number = randint(0, len(feed["items"][:3])-1)
+        feed = feedparser.parse(requests.get(self._url).content)
+        news_number = randint(0, len(feed["items"][:3]) - 1)
+        result = ""
         try:
             result = feed["items"][news_number]["title"] + \
-			    ". " + feed["items"][news_number]["summary"]
-        except:
-            result = ""
-        return result
+                     ". " + feed["items"][news_number]["summary"]
+        finally:
+            return result

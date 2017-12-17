@@ -1,7 +1,6 @@
 from datetime import datetime
 from urllib.request import urlopen
 from re import findall, search, sub
-
 from hakaton import MessageProvider
 
 
